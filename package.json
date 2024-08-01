@@ -11,10 +11,12 @@
     "build": "tsc"
   },
   "dependencies": {
+    "cpf-cnpj-validator": "^1.0.3",
     "csv-parser": "^3.0.0",
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
-    "intl": "^1.2.5"
+    "intl": "^1.2.5",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
