@@ -1,0 +1,26 @@
+{
+  "name": "teste-vaga-fullstack-kroonos",
+  "version": "1.0.0",
+  "repository": "git@github.com:jskadomoto/teste-vaga-fullstack-kroonos.git",
+  "author": "joneskadomoto-sbt <jseiji@sbt.com.br>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "intl": "^1.2.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.0.2",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
