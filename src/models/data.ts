@@ -7,6 +7,7 @@ export interface ICsvData {
 }
 
 export interface IValidatedCsvDataResponse extends ICsvData {
+	id: string
 	isValidCpfOrCnpj: boolean
 	formattedVlTotal: string /* Ex de retorno: R$198,99 */
 	isValidInstallment: boolean /* prestações / parcelas */
