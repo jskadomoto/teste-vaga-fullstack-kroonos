@@ -50,7 +50,7 @@ export const processCsvData = async (
 
 	if (!data) return Promise.reject('Erro ao processar o CSV')
 
-	const output = data?.map((it, index) => {
+	const output = data?.map((it) => {
 		return {
 			id: uuidv4(),
 			...it,
