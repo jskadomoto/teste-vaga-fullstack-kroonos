@@ -1,3 +1,54 @@
+# API de Tratamento de CSV
+
+Essa API consulta o CSV e transforma os dados em JSON, seguindo os critérios do teste.
+
+
+## Rodando localmente
+
+### Clone o projeto
+
+* Com HTTPS
+```bash
+  git clone https://github.com/jskadomoto/teste-vaga-fullstack-kroonos.git
+```
+* Com SSH
+```bash
+  git clone git@github.com:jskadomoto/teste-vaga-fullstack-kroonos.git
+```
+
+### Entre no diretório do projeto
+```bash
+  cd teste-vaga-fullstack-kroonos
+```
+
+### Instale os pacotes
+```bash
+   npm install
+```
+
+### Rode o build
+```bash
+   npm run build
+```
+
+### Inicie o servidor
+* Modo Dev
+```bash
+   npm run dev
+```
+* Modo Prod
+```bash
+   npm run start
+```
+
+
+
+## Autor
+
+[Jones Kadomoto](https://www.linkedin.com/in/jones-seiji-kadomoto-bezerra-165864180/)
+
+# Instruções do Teste:
+
 # Teste Prático para Desenvolvedor Full Stack Kronoos
 
 Você foi designado para desenvolver uma aplicação que deve lidar com grandes volumes de dados. Você deve rodar as seguintes validações e tratativas para cada um dos dados do arquivo e mostrar um retorno ao concluir a rotina. A aplicação será responsável por fornecer uma massa de dados considerável (cerca de 30GB) e deve ser capaz de lidar com dados fornecidos.
