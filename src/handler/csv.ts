@@ -12,34 +12,33 @@ export const parseCsv = async (
 	limit: number
 ): Promise<ICsvData[]> => {
 	const results: ICsvData[] = []
-	const csvPath = path.join(
-		__dirname,
-		'..',
-		'mock',
-		'data.csv'
-	) /* cria um path para o arquivo CSV, localizado em: /src/mock/data.csv */
+	const csvPath = path.join(__dirname, '..', 'mock', 'data.csv') /* cria um path para o arquivo CSV, localizado em: /src/mock/data.csv */
 
 	let count = 0
 	const startCount = (page - 1) * limit
 	const endCount = startCount + limit
 
-	return new Promise((resolve, reject) => {
-		fs.createReadStream(csvPath)
-			.pipe(csvParser())
-			.on('data', (data: ICsvData) => {
-				if (count > startCount && count < endCount)
-					results.push({
-						nrCpfCnpj: data.nrCpfCnpj,
-						vlTotal: data.vlTotal,
-						qtPrestacoes: data.qtPrestacoes,
-						vlPresta: data.vlPresta,
-						vlMora: data.vlMora ?? null,
-					})
-				count++
-			})
-			.on('end', () => resolve(results))
-			.on('error', (error) => reject(error))
-	})
+	try {
+		const csvStream = fs.createReadStream(csvPath).pipe(csvParser())
+
+		for await (const data of csvStream) {
+			if (count > startCount && count < endCount) {
+				results.push({
+					nrCpfCnpj: data.nrCpfCnpj,
+					vlTotal: data.vlTotal,
+					qtPrestacoes: data.qtPrestacoes,
+					vlPresta: data.vlPresta,
+					vlMora: data.vlMora ?? null,
+				})
+			}
+			count++
+		}
+
+		return Promise.resolve(results)
+	} catch (error) {
+		console.log('Erro ao realizar o parse do CSV ===>', error)
+		throw new Error(`Erro ao realizar o parse do CSV: ${error}`)
+	}
 }
 
 export const processCsvData = async (
