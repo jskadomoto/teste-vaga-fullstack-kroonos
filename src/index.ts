@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 
 //#region Rotas
-app.use('/', dataRoute)
+app.use('/api', dataRoute)
 //#endregion Rotas
 
 app.listen(PORT, () => {
