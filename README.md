@@ -41,6 +41,15 @@ Essa API consulta o CSV e transforma os dados em JSON, seguindo os critérios do
    npm run start
 ```
 
+#### Retorna uma lista paginada
+```http
+  GET /api?page=${page}&limit=${limit}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `page`      | `number` | Valor da página a ser consultada |
+| `limit`      | `number` | Quantidade de resultados por página |
 
 
 ## Autor
