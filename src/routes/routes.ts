@@ -5,7 +5,9 @@ const router = Router()
 
 router.get('/', async (req, res) => {
 	try {
-		const data = await processCsvData()
+		const page = parseInt(req.query.page as string) ?? 1 
+		const limit = parseInt(req.query.limit as string) ?? 100 
+		const data = await processCsvData(page, limit)
 		res.json(data).status(200)
   } catch (error) {
     console.log('Error ==>', error)
