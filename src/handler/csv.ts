@@ -6,6 +6,7 @@ import { cpf } from 'cpf-cnpj-validator'
 import { formatCurrencyToBRL } from '../utils/currency'
 import { isValidInstallments } from '../utils/installments'
 import { v4 as uuidv4 } from 'uuid'
+import { validateCPFOrCNPJ } from '../utils/docs'
 
 export const parseCsv = async (
 	page: number,
@@ -53,7 +54,7 @@ export const processCsvData = async (
 		return {
 			id: uuidv4(),
 			...it,
-			isValidCpfOrCnpj: cpf.isValid(it.nrCpfCnpj),
+			isValidCpfOrCnpj: validateCPFOrCNPJ(it.nrCpfCnpj),
 			formattedVlTotal: formatCurrencyToBRL(it.vlTotal),
 			isValidInstallment: isValidInstallments(
 				it.vlTotal,
